@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilangan: Pengertian & Jenis Futuristik</title>
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+  body {background:#0f0f1a; color:#e0e0ff; line-height:1.6; transition:0.3s;}
+  
+  /* Header */
+  header {
+    background: linear-gradient(135deg, maroon,  darkred);
+    color:white;
+    text-align:center;
+    padding:2rem 1rem;
+    position:relative;
+    box-shadow:0 0 20px #00dbde70;
+    text-shadow:0 0 10px #00f4ff;
+  }
+  header h1 {font-size:2.2rem; margin-bottom:.5rem;}
+  header p {font-size:1rem; color:#dff; text-shadow:0 0 5px #00dbde;}
+  .top-buttons {
+    position:absolute;
+    top:15px;
+    left:20px;
+    display:flex;
+    gap:10px;
+  }
+  .top-buttons button {
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 10px #fff3;
+    font-size:0.9rem;
+  }
+  .btn-back {background:#fff; color:#00dbde;}
+  .btn-back:hover {background:#e0e0ff; box-shadow:0 0 15px #00dbde;}
+  .btn-exit {background:#ff3d3d; color:white;}
+  .btn-exit:hover {background:#cc0000; box-shadow:0 0 15px #ff3d3d;}
+
+  /* Navbar */
+  nav {
+    background:#111;
+    padding:1rem;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:1rem;
+    box-shadow:0 0 10px #00dbde50 inset;
+  }
+  nav a {
+    color:#00f4ff;
+    text-decoration:none;
+    padding:.6rem 1.2rem;
+    border-radius:6px;
+    transition:0.3s;
+    box-shadow:0 0 5px #00dbde50;
+  }
+  nav a:hover {background:#00dbde30; box-shadow:0 0 10px #00f4ff;}
+
+  /* Section & Card */
+  section {padding:2rem 1rem; max-width:900px; margin:auto;}
+  section h2 {margin-bottom:1rem; color:blue; text-shadow:0 0 5px #00f4ff;}
+  .card {
+    background:#1a1a2e;
+    padding:1.5rem;
+    margin-bottom:2rem;
+    border-radius:15px;
+    box-shadow:0 0 20px #00f4ff40;
+    transition:0.3s;
+  }
+  .card:hover {box-shadow:0 0 25px blue;}
+  .example {
+    background:#0f1a3f;
+    border-left:5px solid #00f4ff;
+    padding:1rem;
+    margin-top:1rem;
+    border-radius:8px;
+    font-family: monospace;
+    color:#ccefff;
+    position: relative;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% {box-shadow: 0 0 5px #00f4ff;}
+    100% {box-shadow: 0 0 20px #00f4ff;}
+  }
+
+  /* Icon neon */
+  .icon {
+    display:inline-block;
+    width:24px;
+    height:24px;
+    margin-right:10px;
+    vertical-align:middle;
+    filter: drop-shadow(0 0 5px #00f4ff);
+  }
+
+  /* Footer */
+  footer {
+    background:#111;
+    color:#00f4ff;
+    text-align:center;
+    padding:1rem;
+    margin-top:2rem;
+    box-shadow:0 0 10px #00dbde50 inset;
+  }
+
+  /* Responsive */
+  @media(max-width:600px){
+    nav a {display:block; margin:8px 0;}
+    .top-buttons {flex-direction: column; top:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bilangan: Pengertian & Jenis</h1>
+  <p>Materi Matematika Futuristik</p>
+  <div class="top-buttons"><button class="btn-exit" onclick="window.location.href='index.html'">🚪 Keluar</button>
+    <button class="btn-back" onclick="window.location.href='kalkulator.html'">⬅️ Kembali</button>
+  </div>
+</header>
+
+<nav>
+  <a href="#pengertian">Pengertian</a>
+  <a href="#jenis">Jenis Bilangan</a>
+  <a href="#contoh">Contoh</a>
+  <a href="#konversi">Konversi</a>
+</nav>
+
+<!-- Pengertian -->
+<section id="pengertian">
+  <div class="card">
+    <h2>🔹 Pengertian Bilangan</h2>
+    <p>Bilangan adalah simbol atau angka untuk menyatakan jumlah, nilai, atau urutan. Digunakan dalam kehidupan sehari-hari untuk menghitung, mengukur, dan membandingkan.</p>
+  </div>
+</section>
+
+<!-- Jenis -->
+<section id="jenis">
+  <div class="card">
+    <h2>🔹 Jenis-jenis Bilangan</h2>
+    <ul>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/plus-math.png"/> <b>Bilangan Bulat</b> → {..., -3, -2, -1, 0, 1, 2, 3,...}</li>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/one.png"/> <b>Bilangan Asli</b> → {1, 2, 3,...}</li>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/ok.png"/> <b>Bilangan Genap</b> → {2,4,6,...}</li>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/cancel.png"/> <b>Bilangan Ganjil</b> → {1,3,5,...}</li>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/prime.png"/> <b>Bilangan Prima</b> → {2,3,5,...}</li>
+      <li> <img class="icon" src="https://img.icons8.com/fluency/48/000000/combo-chart.png"/> <b>Bilangan Komposit</b> → {4,6,8,...}</li>
+    </ul>
+  </div>
+</section>
+-
+<!-- Contoh -->
+<section id="contoh">
+  <div class="card">
+    <h2>🔹 Contoh Bilangan Genap & Ganjil</h2>
+    <p><b>Genap:</b> 2,4,6,8,10</p>
+    <p><b>Ganjil:</b> 1,3,5,7,9</p>
+    <div class="example">
+      Langkah menentukan:<br>
+      1. Bagi bilangan dengan 2<br>
+      2. Sisa 0 → Genap<br>
+      3. Sisa ≠0 → Ganjil
+    </div>
+  </div>
+</section>
+
+<!-- Konversi -->
+<section id="konversi">
+  <div class="card">
+    <h2>🔹 Konversi Bilangan</h2>
+    <div class="example">
+      <b>Oktal ke Desimal:</b> (22)<sub>8</sub> → 18<sub>10</sub><br>
+      <b>Oktal ke Hexa:</b> (22)<sub>8</sub> → 12<sub>16</sub><br>
+      <b>Hexa ke Desimal:</b> (1A)<sub>16</sub> → 26<sub>10</sub><br>
+      <b>Hexa ke Oktal:</b> (1A)<sub>16</sub> → 32<sub>8</sub>
+    </div>
+    <p>Langkah Konversi: Tentukan basis asal, ubah ke desimal, lalu ke basis tujuan.</p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Materi Bilangan Futuristik</p>
+</footer>
+
+</body>
+</html>

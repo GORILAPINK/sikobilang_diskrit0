@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda - Aplikasi Belajar Bilangan</title>
+  <style>
+    /* Global */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    /* Header Futuristik */
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: transparent;
+      position: relative;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(79,172,254,0.4), rgba(0,242,254,0.4));
+      filter: blur(80px);
+      z-index: -1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #00f2fe;
+      text-shadow: 0 0 12px #00f2fe, 0 0 24px #4facfe;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    /* Navbar Glass */
+    nav {
+      margin-top: 25px;
+    }
+    nav a {
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.95em;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    nav a:hover {
+      background: rgba(0,242,254,0.2);
+      color: #00f2fe;
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      color: #00f2fe;
+      text-shadow: 0 0 8px #00f2fe;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 15px auto 35px;
+      color: #ddd;
+    }
+
+    /* Fitur Cards Futuristik */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 25px;
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(0,242,254,0.4);
+    }
+    .card h3 {
+      margin-top: 15px;
+      font-size: 1.3em;
+      color: #fff;
+    }
+    .card p {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+    .icon {
+      font-size: 45px;
+      color: #00f2fe;
+      text-shadow: 0 0 12px #00f2fe;
+    }
+
+    /* Tombol Mulai Futuristik */
+    .btn-start {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 35px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(0,242,254,0.6);
+      transition: all 0.3s ease;
+    }
+    .btn-start:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(0,242,254,0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚡ Aplikasi Belajar Bilangan</h1>
+    <p>Konversi - bilangan </p>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="kalkulator.html">Kalkulator</a>
+      <a href="penjelasan.html">Penjelasan</a>
+      <a href="bilangan.html">Bilangan</a>
+    <a href="0.html">Hitung</a>
+
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Selamat Datang 👋</h2>
+    <p>
+      Ini adalah aplikasi <b>futuristik</b> untuk membantu kamu belajar tentang 
+      <b>sistem bilangan</b> dan <b>himpunan</b>.  
+      Kamu bisa mencoba konversi bilangan, membaca penjelasan teori termudah
+    <!-- Fitur Utama -->
+    <div class="features">
+      <div class="card">
+        <div class="icon">🧮</div>
+        <h3>Kalkulator</h3>
+        <p>Hitung dan konversi bilangan dengan mudah ke berbagai sistem bilangan.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>Penjelasan</h3>
+        <p>Pelajari konsep dasar bilangan dan himpunan dengan materi singkat & jelas.</p>
+      </div>
+    </div>
+
+    <a href="kalkulator.html" class="btn-start">🚀 Mulai Belajar</a>
+  </div>
+</body>
+</html>

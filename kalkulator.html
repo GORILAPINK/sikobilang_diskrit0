@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Konversi Bilangan Futuristik</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Orbitron', sans-serif; }
+    body {
+      background: radial-gradient(circle at top left, #0ff, #00f, #000);
+      color: #fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    header {
+      padding: 2rem 1rem;
+      text-align:center;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
+    header h1 { font-size:2.2rem; color:#0ff; }
+    
+    nav {
+      margin-top:1rem;
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+    nav a {
+      text-decoration:none;
+      color:#0ff;
+      padding:0.5rem 1rem;
+      border:1px solid #0ff;
+      border-radius:8px;
+      transition:0.3s;
+    }
+    nav a:hover {
+      background:#0ff; color:#000;
+      box-shadow:0 0 10px #0ff, 0 0 20px #0ff inset;
+    }
+
+    .container {
+      flex:1;
+      max-width:700px;
+      margin:2rem auto;
+      padding:2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius:15px;
+      box-shadow:0 0 15px #0ff, 0 0 25px #0ff inset;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    input, select, button {
+      width:100%;
+      padding:12px;
+      font-size:16px;
+      border-radius:8px;
+      border:1px solid #0ff;
+      background:rgba(255,255,255,0.05);
+      color:#0ff;
+    }
+    input::placeholder { color: #88f; }
+
+    button {
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn-convert {
+      background:#0ff; color:#000;
+    }
+    .btn-convert:hover { background:#00f; color:#0ff; box-shadow:0 0 10px #0ff; }
+
+    .btn-exit {
+      background:#f00; color:#fff;
+      margin-top:5px;
+    }
+    .btn-exit:hover { background:#a00; box-shadow:0 0 10px #f00; }
+
+    .result {
+      margin-top:20px;
+      padding:15px;
+      border-radius:8px;
+      background: rgba(255,255,255,0.1);
+      border:1px solid #0ff;
+      font-size:15px;
+    }
+
+    .steps {
+      margin-top:10px;
+      background: rgba(0,255,255,0.1);
+      padding:10px;
+      border-left:4px solid #0ff;
+      border-radius:6px;
+    }
+    .steps h3 {
+      margin:0 0 8px 0;
+      font-size:16px;
+      color:#0ff;
+    }
+    pre {
+      background: rgba(255,255,255,0.05);
+      padding:8px;
+      border-radius:5px;
+      overflow-x:auto;
+      color:#0ff;
+    }
+
+    @media(max-width:600px){
+      nav a { display:block; margin:8px 0; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔢 Kalkulator Konversi Bilangan</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="kalkulator.html">Kalkulator</a>
+      <a href="penjelasan.html">Penjelasan</a>
+      <a href="bilangan.html">Bilangan</a>
+      <a href="index.html" class="btn-exit">Keluar</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <label for="inputNumber">Masukkan Angka:</label>
+    <input type="text" id="inputNumber" placeholder="contoh: 22, 1010, 3B">
+
+    <label for="baseSelect">Pilih Basis Input:</label>
+    <select id="baseSelect">
+      <option value="10">Desimal</option>
+      <option value="2">Biner</option>
+      <option value="8">Oktal</option>
+      <option value="16">Hexa</option>
+    </select>
+
+    <button class="btn-convert" onclick="convert()">Konversi</button>
+
+    <div class="result" id="result">
+      Hasil konversi akan tampil di sini...
+    </div>
+  </div>
+
+  <script>
+    function convert() {
+      const input = document.getElementById("inputNumber").value.trim();
+      const base = parseInt(document.getElementById("baseSelect").value);
+      let decimal;
+
+      try {
+        decimal = parseInt(input, base);
+        if (isNaN(decimal)) throw new Error("Input tidak valid");
+      } catch (e) {
+        document.getElementById("result").innerHTML = "⚠️ Input tidak valid!";
+        return;
+      }
+
+      const hasil = `
+        <b>Desimal:</b> ${decimal} <br>
+        <b>Biner:</b> ${decimal.toString(2)} <br>
+        <b>Oktal:</b> ${decimal.toString(8)} <br>
+        <b>Hexa:</b> ${decimal.toString(16).toUpperCase()}
+      `;
+
+      let steps = "";
+      if(base===10){
+        steps = `
+          <div class="steps">
+            <h3>Langkah Konversi (Dari Desimal)</h3>
+            <b>Desimal → Biner:</b><br>
+            Bagi ${decimal} dengan 2 berulang, catat sisanya, lalu balik hasil.<br>
+            <pre>${decimal} ÷ 2 = ${Math.floor(decimal/2)} sisa ${decimal%2}</pre>
+
+            <b>Desimal → Oktal:</b><br>
+            Bagi ${decimal} dengan 8.<br>
+            <pre>${decimal} ÷ 8 = ${Math.floor(decimal/8)} sisa ${decimal%8}</pre>
+
+            <b>Desimal → Hexa:</b><br>
+            Bagi ${decimal} dengan 16.<br>
+            <pre>${decimal} ÷ 16 = ${Math.floor(decimal/16)} sisa ${decimal%16}</pre>
+          </div>
+        `;
+      }
+
+      document.getElementById("result").innerHTML = hasil + steps;
+    }
+  </script>
+</body>
+</html>

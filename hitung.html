@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Futuristik</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .calculator {
+      width: 340px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .display {
+      width: 100%;
+      height: 90px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      text-align: right;
+      padding: 20px;
+      font-size: 2.2em;
+      font-weight: 500;
+      color: #00d4ff;
+      overflow-x: auto;
+      box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      width: 100%;
+    }
+
+    button {
+      height: 70px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+    }
+
+    button:hover {
+      background: rgba(0, 212, 255, 0.3);
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .operator {
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .equal {
+      grid-column: span 2;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #00d4ff, #007bff);
+      color: #fff;
+      font-size: 1.4em;
+      box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+    }
+
+    .equal:hover {
+      background: linear-gradient(135deg, #007bff, #00d4ff);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="append('/')">÷</button>
+      <button class="operator" onclick="append('*')">×</button>
+      <button class="operator" onclick="append('-')">−</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button class="operator" onclick="append('+')">+</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button onclick="backspace()">⌫</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('.')">.</button>
+
+      <button onclick="append('0')" style="grid-column: span 2;">0</button>
+      <button class="equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+
+    function append(value) {
+      if (display.innerText === "0") display.innerText = "";
+      display.innerText += value;
+    }
+
+    function clearDisplay() {
+      display.innerText = "0";
+    }
+
+    function backspace() {
+      display.innerText = display.innerText.slice(0, -1) || "0";
+    }
+
+    function calculate() {
+      try {
+        display.innerText = eval(display.innerText.replace("÷", "/").replace("×", "*"));
+      } catch {
+        display.innerText = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
