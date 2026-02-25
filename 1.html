@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyek Tim</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Playfair Display', serif;
+        background-color: #f5e6d3;
+        background-image: url("https://www.transparenttextures.com/patterns/aged-paper.png");
+        color: #4b2e2e;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        background: #6f4e37;
+        color: #fff8ee;
+        text-align: center;
+        padding: 25px 15px;
+        border-bottom: 4px solid #4b2e2e;
+    }
+
+    header h1 {
+        margin: 0;
+        font-family: 'Cinzel', serif;
+        letter-spacing: 2px;
+        font-size: 28px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+        background: #8b5e3c;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-bottom: 2px solid #4b2e2e;
+    }
+
+    nav a {
+        color: #fff8ee;
+        text-decoration: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        transition: 0.3s;
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    nav a:last-child {
+        border-right: none;
+    }
+
+    nav a:hover {
+        background: #4b2e2e;
+    }
+
+    /* ===== CONTENT ===== */
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 24px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: rgba(255, 248, 238, 0.95);
+        border: 2px solid #8b5e3c;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(75, 46, 46, 0.25);
+        cursor: pointer;
+        transition: 0.4s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        background: #ecd2ad;
+    }
+
+    .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        filter: sepia(45%);
+    }
+
+    .card-body {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 17px;
+        margin: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        font-size: 14px;
+        border-top: 2px solid #8b5e3c;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+        header h1 {
+            font-size: 22px;
+        }
+
+        nav a {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .card img {
+            height: 140px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Arsip Proyek Digital</h1>
+</header>
+
+<nav>
+    <a href="index.html">Beranda</a>
+    <a href="personal.html">Proyek Pribadi</a>
+    <a href="team.html">Proyek Tim</a>
+</nav>
+
+<div class="container">
+    <h2>Proyek Tim</h2>
+    <div class="grid" id="projectList"></div>
+</div>
+
+<footer>
+    © 2026 Arsip Digital • Gaya Vintage
+</footer>
+
+<script>
+const projects = [
+    { 
+        name: "Aplikasi Kasir",
+        type: "team",
+        image: "https://picsum.photos/400/300?51",
+        link: "detail.html"
+    },
+    { 
+        name: "Dashboard Admin",
+        type: "team",
+        image: "https://picsum.photos/400/300?52",
+        link: "detail.html"
+    },
+    { 
+        name: "Sistem Manajemen Sekolah",
+        type: "team",
+        image: "https://picsum.photos/400/300?53",
+        link: "detail.html"
+    }
+];
+
+const container = document.getElementById("projectList");
+
+projects.forEach(project => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    card.innerHTML = `
+        <img src="${project.image}" alt="${project.name}">
+        <div class="card-body">
+            <h3 class="card-title">${project.name}</h3>
+        </div>
+    `;
+
+    card.addEventListener("click", () => {
+        window.location.href = project.link;
+    });
+
+    container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
